@@ -1,18 +1,11 @@
 pipeline {
     agent any
     stages {
-         stage('compile code') {
-             steps {
-                  sh '''
-                    mvn compile
-                  '''
-             }
-         }
-         stage('make package') {
+
+         stage('go build') {
              steps {
                  sh '''
-
-                     mvn package
+                 go build
                  '''
              }
          }
