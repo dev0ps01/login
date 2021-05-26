@@ -1,29 +1,9 @@
-pipeline {
-    agent any
-    stages {
+@Library('todo') _
 
-         stage('go build') {
-             steps {
-                 sh '''
-                 go get -d
-                 go build
-                 '''
-             }
-         }
-         stage ('Prepare Artifacts') {
-           steps {
-               sh '''
-                  zip -r login.zip *
-               '''
-           }
-         }
-       stage('Upload Artifacts') {
-          steps {
-              sh '''
-
-                 curl -f -v -u admin:vamsi --upload-file login.zip http://172.31.9.137:8081/repository/users/login.zip
-              '''
-          }
-       }
-    }
-}
+todo (
+        COMPONENT             : 'LOGIN',
+        PROJECT_NAME          : "Todoapp",
+        SLAVE_LABEL           : "GOLANG",
+        SKIP_NEXUS_UPLOAD     : false,
+        APP_TYPE              : "GOLANG"
+)
