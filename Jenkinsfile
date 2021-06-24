@@ -3,21 +3,7 @@ pipeline {
   agent any
 
     stages {
-      stage ('make go get') {
-        steps {
-          sh '''
-            go get
-          '''
-        }
-      }
-      stage (' make go build') {
-         steps {
-           sh '''
-             go build
-           '''
 
-         }
-      }
       stage ('prepare artifact') {
         steps {
 
