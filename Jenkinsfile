@@ -1,7 +1,7 @@
 @Library('todo') _
 
 todo (
-    COMPONENT     : 'LOGIN',
+    COMPONENT     : 'login',
     PROJECT_NAME   : "todoapp",
     SLAVE_LABEL     : "NODEJS",
     APP_TYPE       :  "GOLANG",
