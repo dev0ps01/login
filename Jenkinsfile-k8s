@@ -17,7 +17,7 @@ pipeline {
             steps {
 
                 sh '''
-                     helm upgrade -i frontend helm/. --set image.tag=${VERSION}
+                     helm upgrade -i login helm/. --set image.tag=${VERSION}
                 '''
             }
         }
