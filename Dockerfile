@@ -1,15 +1,9 @@
-FROM golang:1.16-alpine
-
-WORKDIR /app
-
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
-
-COPY *.go ./
-
-RUN go build -o /login-ci
-
-EXPOSE 8080
-
-CMD [ "/login-ci" ]
+FROM    golang:1.13.15
+RUN     mkdir -p /go/src/app
+COPY    . /go/src/app
+WORKDIR /go/src/app
+RUN     GOPATH=~/go
+RUN     go get
+EXPOSE  8080
+RUN     go build
+CMD     ["./app"]
